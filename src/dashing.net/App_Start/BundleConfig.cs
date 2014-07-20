@@ -24,7 +24,8 @@ namespace dashing.net.App_Start
                 .Include("~/Scripts/gridster/jquery.gridster.js")
                 .Include("~/Scripts/dashing.gridster.coffee")
                 .IncludeDirectory("~/Widgets", "*.coffee", true)
-                .Include("~/Scripts/application.coffee");
+                .Include("~/Scripts/application.coffee")
+                .Include("~/Scripts/highcharts.js");
                             
             application.Transforms.Add(new CoffeeTransform());
             bundles.Add(application);
