@@ -170,6 +170,7 @@
     <Content Include="Assets\fontawesome-webfont.svg" />
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\favicon.ico" />
+    <Content Include="Assets\vumeter-background.png" />
     <Content Include="Scripts\batman.jquery.js" />
     <Content Include="Scripts\batman.js" />
     <Content Include="Scripts\d3.v2.min.js" />
@@ -198,6 +199,7 @@
     <Content Include="Widgets\meter\meter.html" />
     <Content Include="Widgets\number\number.html" />
     <Content Include="Widgets\text\text.html" />
+    <Content Include="Widgets\vumeter\vumeter.html" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\es5-shim.js" />
     <Content Include="Scripts\es5-shim.min.js" />
@@ -239,6 +241,8 @@
     <Content Include="Widgets\highline\highline.scss" />
     <Content Include="Widgets\highpie\highpie.coffee" />
     <Content Include="Widgets\highpie\highpie.scss" />
+    <Content Include="Widgets\vumeter\vumeter.coffee" />
+    <Content Include="Widgets\vumeter\vumeter.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
