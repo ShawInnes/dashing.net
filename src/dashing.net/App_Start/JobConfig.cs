@@ -9,12 +9,20 @@ using dashing.net.common;
 
 namespace dashing.net.App_Start
 {
+    using System.IO;
+
     public class JobConfig
     {
         public static void RegisterJobs()
         {
+            var jobsPath = HttpContext.Current.Server.MapPath("~/Jobs/");
+            if (!Directory.Exists(jobsPath))
+            {
+                return;
+            }
+
             var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new DirectoryCatalog(HttpContext.Current.Server.MapPath("~/Jobs/")));
+            catalog.Catalogs.Add(new DirectoryCatalog(jobsPath));
             catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
 
             var container = new CompositionContainer(catalog);
