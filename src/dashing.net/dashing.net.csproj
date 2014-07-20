@@ -191,6 +191,7 @@
     <Content Include="Widgets\graph\graph.html" />
     <Content Include="Widgets\highcolumn\highcolumn.html" />
     <Content Include="Widgets\highline\highline.html" />
+    <Content Include="Widgets\highpie\highpie.html" />
     <Content Include="Widgets\iframe\iframe.html" />
     <Content Include="Widgets\image\image.html" />
     <Content Include="Widgets\list\list.html" />
@@ -236,6 +237,8 @@
     <Content Include="Widgets\highcolumn\highcolumn.scss" />
     <Content Include="Widgets\highline\highline.coffee" />
     <Content Include="Widgets\highline\highline.scss" />
+    <Content Include="Widgets\highpie\highpie.coffee" />
+    <Content Include="Widgets\highpie\highpie.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
