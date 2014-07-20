@@ -189,6 +189,7 @@
     <Content Include="Widgets\clock\clock.html" />
     <Content Include="Widgets\comments\comments.html" />
     <Content Include="Widgets\graph\graph.html" />
+    <Content Include="Widgets\highcolumn\highcolumn.html" />
     <Content Include="Widgets\iframe\iframe.html" />
     <Content Include="Widgets\image\image.html" />
     <Content Include="Widgets\list\list.html" />
@@ -230,6 +231,8 @@
     <Content Include="Widgets\text\text.coffee" />
     <Content Include="Widgets\text\text.scss" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Widgets\highcolumn\highcolumn.coffee" />
+    <Content Include="Widgets\highcolumn\highcolumn.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
