@@ -171,16 +171,23 @@
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\favicon.ico" />
     <Content Include="Assets\vumeter-background.png" />
+    <Content Include="Content\jquery.gridster.css" />
+    <Content Include="Content\jquery.gridster.min.css" />
     <Content Include="Scripts\batman.jquery.js" />
     <Content Include="Scripts\batman.js" />
     <Content Include="Scripts\d3.v2.min.js" />
-    <Content Include="Scripts\gridster\jquery.gridster.js" />
     <Content Include="Scripts\highcharts.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.gridster.js" />
+    <Content Include="Scripts\jquery.gridster.min.js" />
+    <Content Include="Scripts\jquery.gridster.with-extras.js" />
+    <Content Include="Scripts\jquery.gridster.with-extras.min.js" />
     <Content Include="Scripts\jquery.knob.js" />
-    <Content Include="Scripts\gridster\jquery.leanModal.min.js" />
+    <Content Include="Scripts\jquery.leanModal.min.js" />
     <Content Include="Scripts\rickshaw.min.js" />
     <Content Include="Assets\stylesheets\font-awesome.css" />
-    <Content Include="Assets\stylesheets\jquery.gridster.css" />
     <Content Include="Global.asax" />
     <Content Include="Assets\fontawesome-webfont.eot" />
     <Content Include="Assets\fontawesome-webfont.ttf" />
@@ -200,11 +207,8 @@
     <Content Include="Widgets\number\number.html" />
     <Content Include="Widgets\text\text.html" />
     <Content Include="Widgets\vumeter\vumeter.html" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\es5-shim.js" />
     <Content Include="Scripts\es5-shim.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -215,7 +219,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Widgets\meter\meter.coffee" />
     <Content Include="Widgets\meter\meter.scss" />
     <Content Include="Widgets\clock\clock.coffee" />
@@ -243,6 +246,7 @@
     <Content Include="Widgets\highpie\highpie.scss" />
     <Content Include="Widgets\vumeter\vumeter.coffee" />
     <Content Include="Widgets\vumeter\vumeter.scss" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
