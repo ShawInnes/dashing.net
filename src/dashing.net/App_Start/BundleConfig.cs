@@ -34,7 +34,7 @@ namespace dashing.net.App_Start
                 .Include("~/Content/css/font-awesome.css")
                 .Include("~/Content/jquery.gridster.css")
                 .IncludeDirectory("~/Widgets", "*.scss", true)
-                .Include("~/Assets/stylesheets/application.scss");
+                .Include("~/Content/application.scss");
 
             styles.Transforms.Add(new ScssTransform());
             bundles.Add(styles);

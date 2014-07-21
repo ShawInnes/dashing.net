@@ -167,9 +167,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Assets\logo.png" />
-    <Content Include="Assets\favicon.ico" />
-    <Content Include="Assets\vumeter-background.png" />
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\vumeter-background.png" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -252,13 +252,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
     <Folder Include="Jobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\stylesheets\application.scss" />
+    <Content Include="Content\application.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\dashing.gridster.coffee" />
