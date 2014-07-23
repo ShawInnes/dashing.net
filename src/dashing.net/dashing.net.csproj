@@ -169,6 +169,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\favicon.ico" />
+    <Content Include="Content\rickshaw.css" />
+    <Content Include="Content\rickshaw.min.css" />
     <Content Include="Content\vumeter-background.png" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
@@ -177,7 +179,8 @@
     <Content Include="Content\jquery.gridster.min.css" />
     <Content Include="Scripts\batman.jquery.js" />
     <Content Include="Scripts\batman.js" />
-    <Content Include="Scripts\d3.v2.min.js" />
+    <Content Include="Scripts\d3.v3.js" />
+    <Content Include="Scripts\d3.v3.min.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
@@ -192,6 +195,7 @@
     <Content Include="Scripts\jquery.gridster.with-extras.min.js" />
     <Content Include="Scripts\jquery.knob.js" />
     <Content Include="Scripts\jquery.leanModal.min.js" />
+    <Content Include="Scripts\rickshaw.js" />
     <Content Include="Scripts\rickshaw.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\dashing.coffee" />
@@ -207,6 +211,7 @@
     <Content Include="Widgets\list\list.html" />
     <Content Include="Widgets\meter\meter.html" />
     <Content Include="Widgets\number\number.html" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.html" />
     <Content Include="Widgets\text\text.html" />
     <Content Include="Widgets\vumeter\vumeter.html" />
     <Content Include="Scripts\es5-shim.js" />
@@ -249,6 +254,8 @@
     <Content Include="Widgets\vumeter\vumeter.coffee" />
     <Content Include="Widgets\vumeter\vumeter.scss" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.coffee" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
