@@ -212,6 +212,8 @@
     <Content Include="Widgets\meter\meter.html" />
     <Content Include="Widgets\number\number.html" />
     <Content Include="Widgets\rickshawgraph\rickshawgraph.html" />
+    <Content Include="Widgets\switcher\switcher.coffee" />
+    <Content Include="Widgets\switcher\switcher.md" />
     <Content Include="Widgets\text\text.html" />
     <Content Include="Widgets\vumeter\vumeter.html" />
     <Content Include="Scripts\es5-shim.js" />
