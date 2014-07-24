@@ -27,12 +27,15 @@
     });
 
     Number.accessor('arrow', function() {
+      var arrow_direction;
       if (this.get('last')) {
+        arrow_direction = 'right';
         if (parseInt(this.get('current')) > parseInt(this.get('last'))) {
-          return 'fa fa-arrow-up';
-        } else {
-          return 'fa fa-arrow-down';
+          arrow_direction = 'up';
+        } else if (parseInt(this.get('current')) < parseInt(this.get('last'))) {
+          arrow_direction = 'down';
         }
+        return 'fa fa-arrow-' + arrow_direction;
       }
     });
 
