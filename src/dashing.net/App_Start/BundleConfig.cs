@@ -13,6 +13,8 @@ namespace dashing.net.App_Start
         {
             var application = new ScriptBundle("~/bundles/application-js")
                 .Include("~/Scripts/jquery-{version}.js")
+                .Include("~/Scripts/jquery.signalR-{version}.js")
+                .Include("~/Scripts/signalr-hubs.js")
                 .Include("~/Scripts/es5-shim.js")
                 .Include("~/Scripts/batman.js")
                 .Include("~/Scripts/batman.jquery.js")
@@ -26,7 +28,8 @@ namespace dashing.net.App_Start
                 .IncludeDirectory("~/Widgets", "*.coffee", true)
                 .Include("~/Scripts/application.coffee")
                 .Include("~/Scripts/highcharts.js");
-                            
+
+            application.EnableFileExtensionReplacements = false;
             application.Transforms.Add(new CoffeeTransform());
             bundles.Add(application);
 
