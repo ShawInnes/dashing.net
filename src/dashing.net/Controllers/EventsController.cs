@@ -1,60 +1,38 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Helpers;
-using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Mvc.Async;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using dashing.net.Infrastructure;
-using dashing.net.common;
-using dashing.net.jobs;
-using dashing.net.streaming;
-
-namespace dashing.net.Controllers
+﻿namespace dashing.net.Controllers
 {
-    public class EventsController : ApiController
+    using dashing.net.common;
+    using dashing.net.Infrastructure;
+    using dashing.net.streaming;
+    using Microsoft.AspNet.SignalR;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System.Collections.Concurrent;
+    using System.Threading.Tasks;
+
+    public class EventsController : Hub
     {
-        private static readonly ConcurrentQueue<StreamWriter> _streamWriter = new ConcurrentQueue<StreamWriter>();
-        private static readonly BlockingCollection<string> _messageQueue = new BlockingCollection<string>();
+        private static readonly BlockingCollection<string> MessageQueue = new BlockingCollection<string>();
 
-        private static bool _hasInstantiated = false;
+        private static bool hasInstantiated;
 
-        /// <summary>
-        /// Inspiration http://techbrij.com/real-time-chart-html5-push-sse-asp-net-web-api
-        /// </summary>
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public void Send()
         {
-            HttpResponseMessage response = request.CreateResponse();
-            response.Content = new PushStreamContent(WriteToStream, "text/event-stream");
+            if (hasInstantiated == false)
+            {
+                LoadJobs();
+            }
+        }
 
-            if (!_hasInstantiated)
+        public override Task OnConnected()
+        {
+            if (hasInstantiated == false)
             {
                 LoadJobs();
 
-                _hasInstantiated = true;
+                hasInstantiated = true;
             }
 
-            return response;
-        }
-
-        private void WriteToStream(Stream outputStream, HttpContent headers, TransportContext context)
-        {
-            var streamWriter = new StreamWriter(outputStream);
-            _streamWriter.Enqueue(streamWriter);
+            return base.OnConnected();
         }
 
         private void SendMessage(dynamic message)
@@ -72,34 +50,14 @@ namespace dashing.net.Controllers
 
             var serialized = JsonConvert.SerializeObject(message);
 
-            var payload = string.Format("data: {0}\n\n", serialized);
-
-            _messageQueue.TryAdd(payload);
+            MessageQueue.TryAdd(serialized);
         }
 
-        private static void ProcessQueue()
+        private void ProcessQueue()
         {
-            foreach (var message in _messageQueue.GetConsumingEnumerable())
+            foreach (var message in MessageQueue.GetConsumingEnumerable())
             {
-                for (int i = 0; i < _streamWriter.Count; i++)
-                {
-                    StreamWriter streamWriter;
-                    if (_streamWriter.TryDequeue(out streamWriter))
-                    {
-                        try
-                        {
-                            streamWriter.WriteLine(message);
-                            streamWriter.Flush();
-                        }
-                        catch (Exception)
-                        {
-                            // dont re-add the stream as an error ocurred presumable the client has lost connection
-                            break;
-                        }
-
-                        _streamWriter.Enqueue(streamWriter);
-                    }
-                }
+                Clients.All.sendMessage(message);
             }
         }
 

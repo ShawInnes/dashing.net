@@ -60,9 +60,29 @@
     <Reference Include="Jurassic">
       <HintPath>..\packages\CoffeeSharp.0.5\lib\Jurassic.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Dynamic">
       <HintPath>..\packages\IronRuby.1.1.3\lib\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Scripting">
       <HintPath>..\packages\IronRuby.1.1.3\lib\Microsoft.Scripting.dll</HintPath>
@@ -70,9 +90,12 @@
     <Reference Include="Microsoft.Scripting.Metadata">
       <HintPath>..\packages\IronRuby.1.1.3\lib\Microsoft.Scripting.Metadata.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="SassAndCoffee.Core">
       <HintPath>..\packages\SassAndCoffee.Core.2.0.2.0\lib\net40-Client\SassAndCoffee.Core.dll</HintPath>
@@ -162,100 +185,93 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\CoffeeTransform.cs" />
     <Compile Include="Infrastructure\ScssTransform.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Assets\fontawesome-webfont.svg" />
-    <Content Include="Assets\logo.png" />
-    <Content Include="Assets\favicon.ico" />
-    <Content Include="Assets\stylesheets\application.css">
+    <Content Include="Content\application.css">
       <DependentUpon>application.scss</DependentUpon>
     </Content>
-    <Content Include="Scripts\application.js">
-      <DependentUpon>application.coffee</DependentUpon>
+    <Content Include="Content\application.min.css">
+      <DependentUpon>application.css</DependentUpon>
     </Content>
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\rickshaw.css" />
+    <Content Include="Content\rickshaw.min.css" />
+    <Content Include="Content\vumeter-background.png" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\jquery.gridster.css" />
+    <Content Include="Content\jquery.gridster.min.css" />
     <Content Include="Scripts\batman.jquery.js" />
     <Content Include="Scripts\batman.js" />
-    <Content Include="Scripts\d3.v2.min.js" />
-    <Content Include="Scripts\dashing.gridster.js">
-      <DependentUpon>dashing.gridster.coffee</DependentUpon>
-    </Content>
+    <Content Include="Scripts\d3.v3.js" />
+    <Content Include="Scripts\d3.v3.min.js" />
     <Content Include="Scripts\dashing.js">
       <DependentUpon>dashing.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\gridster\jquery.gridster.js" />
+    <Content Include="Scripts\dashing.min.js">
+      <DependentUpon>dashing.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\application.css.map">
+      <DependentUpon>application.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\dashing.js.map">
+      <DependentUpon>dashing.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\dashing.min.js.map">
+      <DependentUpon>dashing.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.gridster.js" />
+    <Content Include="Scripts\jquery.gridster.min.js" />
+    <Content Include="Scripts\jquery.gridster.with-extras.js" />
+    <Content Include="Scripts\jquery.gridster.with-extras.min.js" />
     <Content Include="Scripts\jquery.knob.js" />
-    <Content Include="Scripts\gridster\jquery.leanModal.min.js" />
+    <Content Include="Scripts\jquery.leanModal.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.0.min.js" />
+    <Content Include="Scripts\rickshaw.js" />
     <Content Include="Scripts\rickshaw.min.js" />
-    <Content Include="Assets\stylesheets\font-awesome.css" />
-    <Content Include="Assets\stylesheets\jquery.gridster.css" />
     <Content Include="Global.asax" />
-    <Content Include="Assets\fontawesome-webfont.eot" />
-    <Content Include="Assets\fontawesome-webfont.ttf" />
-    <Content Include="Assets\fontawesome-webfont.woff" />
     <Content Include="Scripts\dashing.coffee" />
+    <Content Include="Scripts\signalr-hubs.js" />
     <Content Include="Views\Error\404.html" />
-    <Content Include="Widgets\clock\clock.css">
-      <DependentUpon>clock.scss</DependentUpon>
-    </Content>
     <Content Include="Widgets\clock\clock.html" />
-    <Content Include="Widgets\clock\clock.js">
-      <DependentUpon>clock.coffee</DependentUpon>
-    </Content>
-    <Content Include="Widgets\comments\comments.css">
-      <DependentUpon>comments.scss</DependentUpon>
-    </Content>
     <Content Include="Widgets\comments\comments.html" />
-    <Content Include="Widgets\comments\comments.js">
-      <DependentUpon>comments.coffee</DependentUpon>
-    </Content>
     <Content Include="Widgets\graph\graph.html" />
-    <Content Include="Widgets\graph\graph.js">
-      <DependentUpon>graph.coffee</DependentUpon>
-    </Content>
-    <Content Include="Widgets\iframe\iframe.css">
-      <DependentUpon>iframe.scss</DependentUpon>
-    </Content>
+    <Content Include="Widgets\highcolumn\highcolumn.html" />
+    <Content Include="Widgets\highline\highline.html" />
+    <Content Include="Widgets\highpie\highpie.html" />
     <Content Include="Widgets\iframe\iframe.html" />
-    <Content Include="Widgets\iframe\iframe.js">
-      <DependentUpon>iframe.coffee</DependentUpon>
-    </Content>
-    <Content Include="Widgets\image\image.css">
-      <DependentUpon>image.scss</DependentUpon>
-    </Content>
     <Content Include="Widgets\image\image.html" />
-    <Content Include="Widgets\image\image.js">
-      <DependentUpon>image.coffee</DependentUpon>
-    </Content>
-    <Content Include="Widgets\list\list.css">
-      <DependentUpon>list.scss</DependentUpon>
-    </Content>
     <Content Include="Widgets\list\list.html" />
-    <Content Include="Widgets\list\list.js">
-      <DependentUpon>list.coffee</DependentUpon>
-    </Content>
     <Content Include="Widgets\meter\meter.html" />
-    <Content Include="Widgets\meter\meter.js">
-      <DependentUpon>meter.coffee</DependentUpon>
-    </Content>
     <Content Include="Widgets\number\number.html" />
     <Content Include="Widgets\number\number.js">
       <DependentUpon>number.coffee</DependentUpon>
     </Content>
-    <Content Include="Widgets\text\text.css">
-      <DependentUpon>text.scss</DependentUpon>
+    <Content Include="Widgets\number\number.min.js">
+      <DependentUpon>number.js</DependentUpon>
     </Content>
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.html" />
+    <Content Include="Widgets\switcher\switcher.coffee" />
+    <Content Include="Widgets\switcher\switcher.md" />
     <Content Include="Widgets\text\text.html" />
-    <Content Include="Assets\stylesheets\application.css.map">
-      <DependentUpon>application.css</DependentUpon>
-    </Content>
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Widgets\vumeter\vumeter.html" />
     <Content Include="Scripts\es5-shim.js" />
     <Content Include="Scripts\es5-shim.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -266,7 +282,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Widgets\meter\meter.coffee" />
     <Content Include="Widgets\meter\meter.scss" />
     <Content Include="Widgets\clock\clock.coffee" />
@@ -284,39 +299,37 @@
     <Content Include="Widgets\number\number.coffee" />
     <Content Include="Widgets\number\number.scss" />
     <Content Include="Widgets\text\text.coffee" />
-    <Content Include="Widgets\text\text.js">
-      <DependentUpon>text.coffee</DependentUpon>
-    </Content>
     <Content Include="Widgets\text\text.scss" />
     <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Widgets\clock\clock.css.map">
-      <DependentUpon>clock.css</DependentUpon>
+    <Content Include="Widgets\highcolumn\highcolumn.coffee" />
+    <Content Include="Widgets\highcolumn\highcolumn.scss" />
+    <Content Include="Widgets\highline\highline.coffee" />
+    <Content Include="Widgets\highline\highline.scss" />
+    <Content Include="Widgets\highpie\highpie.coffee" />
+    <Content Include="Widgets\highpie\highpie.scss" />
+    <Content Include="Widgets\vumeter\vumeter.coffee" />
+    <Content Include="Widgets\vumeter\vumeter.scss" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.coffee" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.scss" />
+    <Content Include="Widgets\rickshawgraph\rickshawgraph.md" />
+    <Content Include="Widgets\number\number.js.map">
+      <DependentUpon>number.js</DependentUpon>
     </Content>
-    <Content Include="Widgets\comments\comments.css.map">
-      <DependentUpon>comments.css</DependentUpon>
-    </Content>
-    <Content Include="Widgets\iframe\iframe.css.map">
-      <DependentUpon>iframe.css</DependentUpon>
-    </Content>
-    <Content Include="Widgets\image\image.css.map">
-      <DependentUpon>image.css</DependentUpon>
-    </Content>
-    <Content Include="Widgets\text\text.css.map">
-      <DependentUpon>text.css</DependentUpon>
-    </Content>
-    <Content Include="Widgets\list\list.css.map">
-      <DependentUpon>list.css</DependentUpon>
+    <Content Include="Widgets\number\number.min.js.map">
+      <DependentUpon>number.min.js</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
     <Folder Include="Jobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\stylesheets\application.scss" />
+    <Content Include="Content\application.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\dashing.gridster.coffee" />

@@ -13,7 +13,12 @@ class Dashing.Number extends Dashing.Widget
 
   @accessor 'arrow', ->
     if @get('last')
-      if parseInt(@get('current')) > parseInt(@get('last')) then 'icon-arrow-up' else 'icon-arrow-down'
+      arrow_direction = 'right'
+      if parseInt(@get('current')) > parseInt(@get('last'))
+        arrow_direction ='up' 
+      else if parseInt(@get('current')) < parseInt(@get('last'))
+        arrow_direction = 'down'
+      return 'fa fa-arrow-' + arrow_direction 
 
   onData: (data) ->
     if data.status
