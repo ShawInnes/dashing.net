@@ -16,15 +16,15 @@ namespace dashing.net.App_Start
                 .Include("~/Scripts/es5-shim.js")
                 .Include("~/Scripts/batman.js")
                 .Include("~/Scripts/batman.jquery.js")
-                .Include("~/Scripts/dashing.coffee")
+                .Include("~/Scripts/dashing.js")
                 .Include("~/Scripts/gridster/jquery.leanModal.min.js")
                 .Include("~/Scripts/jquery.knob.js")
                 .Include("~/Scripts/d3.v2.min.js")
                 .Include("~/Scripts/rickshaw.min.js")
                 .Include("~/Scripts/gridster/jquery.gridster.js")
-                .Include("~/Scripts/dashing.gridster.coffee")
-                .IncludeDirectory("~/Widgets", "*.coffee", true)
-                .Include("~/Scripts/application.coffee");
+                .Include("~/Scripts/dashing.gridster.js")
+                .IncludeDirectory("~/Widgets", "*.js", true)
+                .Include("~/Scripts/application.js");
                             
             application.Transforms.Add(new CoffeeTransform());
             bundles.Add(application);
@@ -32,8 +32,8 @@ namespace dashing.net.App_Start
             var styles = new Bundle("~/bundles/application-css")
                 .Include("~/Assets/stylesheets/font-awesome.css")
                 .Include("~/Assets/stylesheets/jquery.gridster.css")
-                .IncludeDirectory("~/Widgets", "*.scss", true)
-                .Include("~/Assets/stylesheets/application.scss");
+                .IncludeDirectory("~/Widgets", "*.css", true)
+                .Include("~/Assets/stylesheets/application.css");
 
             styles.Transforms.Add(new ScssTransform());
             bundles.Add(styles);

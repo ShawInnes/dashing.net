@@ -170,9 +170,21 @@
     <Content Include="Assets\fontawesome-webfont.svg" />
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\favicon.ico" />
+    <Content Include="Assets\stylesheets\application.css">
+      <DependentUpon>application.scss</DependentUpon>
+    </Content>
+    <Content Include="Scripts\application.js">
+      <DependentUpon>application.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\batman.jquery.js" />
     <Content Include="Scripts\batman.js" />
     <Content Include="Scripts\d3.v2.min.js" />
+    <Content Include="Scripts\dashing.gridster.js">
+      <DependentUpon>dashing.gridster.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\dashing.js">
+      <DependentUpon>dashing.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\gridster\jquery.gridster.js" />
     <Content Include="Scripts\jquery.knob.js" />
     <Content Include="Scripts\gridster\jquery.leanModal.min.js" />
@@ -185,15 +197,60 @@
     <Content Include="Assets\fontawesome-webfont.woff" />
     <Content Include="Scripts\dashing.coffee" />
     <Content Include="Views\Error\404.html" />
+    <Content Include="Widgets\clock\clock.css">
+      <DependentUpon>clock.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\clock\clock.html" />
+    <Content Include="Widgets\clock\clock.js">
+      <DependentUpon>clock.coffee</DependentUpon>
+    </Content>
+    <Content Include="Widgets\comments\comments.css">
+      <DependentUpon>comments.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\comments\comments.html" />
+    <Content Include="Widgets\comments\comments.js">
+      <DependentUpon>comments.coffee</DependentUpon>
+    </Content>
     <Content Include="Widgets\graph\graph.html" />
+    <Content Include="Widgets\graph\graph.js">
+      <DependentUpon>graph.coffee</DependentUpon>
+    </Content>
+    <Content Include="Widgets\iframe\iframe.css">
+      <DependentUpon>iframe.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\iframe\iframe.html" />
+    <Content Include="Widgets\iframe\iframe.js">
+      <DependentUpon>iframe.coffee</DependentUpon>
+    </Content>
+    <Content Include="Widgets\image\image.css">
+      <DependentUpon>image.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\image\image.html" />
+    <Content Include="Widgets\image\image.js">
+      <DependentUpon>image.coffee</DependentUpon>
+    </Content>
+    <Content Include="Widgets\list\list.css">
+      <DependentUpon>list.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\list\list.html" />
+    <Content Include="Widgets\list\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
     <Content Include="Widgets\meter\meter.html" />
+    <Content Include="Widgets\meter\meter.js">
+      <DependentUpon>meter.coffee</DependentUpon>
+    </Content>
     <Content Include="Widgets\number\number.html" />
+    <Content Include="Widgets\number\number.js">
+      <DependentUpon>number.coffee</DependentUpon>
+    </Content>
+    <Content Include="Widgets\text\text.css">
+      <DependentUpon>text.scss</DependentUpon>
+    </Content>
     <Content Include="Widgets\text\text.html" />
+    <Content Include="Assets\stylesheets\application.css.map">
+      <DependentUpon>application.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\es5-shim.js" />
     <Content Include="Scripts\es5-shim.min.js" />
@@ -227,8 +284,29 @@
     <Content Include="Widgets\number\number.coffee" />
     <Content Include="Widgets\number\number.scss" />
     <Content Include="Widgets\text\text.coffee" />
+    <Content Include="Widgets\text\text.js">
+      <DependentUpon>text.coffee</DependentUpon>
+    </Content>
     <Content Include="Widgets\text\text.scss" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Widgets\clock\clock.css.map">
+      <DependentUpon>clock.css</DependentUpon>
+    </Content>
+    <Content Include="Widgets\comments\comments.css.map">
+      <DependentUpon>comments.css</DependentUpon>
+    </Content>
+    <Content Include="Widgets\iframe\iframe.css.map">
+      <DependentUpon>iframe.css</DependentUpon>
+    </Content>
+    <Content Include="Widgets\image\image.css.map">
+      <DependentUpon>image.css</DependentUpon>
+    </Content>
+    <Content Include="Widgets\text\text.css.map">
+      <DependentUpon>text.css</DependentUpon>
+    </Content>
+    <Content Include="Widgets\list\list.css.map">
+      <DependentUpon>list.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "iframe.js",
+  "sourceRoot": "",
+  "sources": [
+    "iframe.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,MAAA;mSAAA;;AAAA,EAAM,OAAO,CAAC;AAEZ,6BAAA,CAAA;;;;KAAA;;AAAA,qBAAA,KAAA,GAAO,SAAA,GAAA,CAAP,CAAA;;AAAA,qBAGA,MAAA,GAAQ,SAAC,IAAD,GAAA,CAHR,CAAA;;kBAAA;;KAF2B,OAAO,CAAC,OAArC,CAAA;AAAA"
+}
