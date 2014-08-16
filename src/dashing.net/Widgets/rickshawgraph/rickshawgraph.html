@@ -1,5 +1,86 @@
-<h1 class="title" data-bind="title"></h1>
+<h1>Graphing Widget</h1>
 
-<h2 class="value" data-bind="current | prepend prefix"></h2>
+<p>The graphing widget shows graphs using the Rickshaw graphing library.  The names of data fields
+should be (vaguely) familiar if you've used Rickshaw before.</p>
 
-<p class="more-info" data-bind="moreinfo"></p>
+<p>It's recommended that you replace the /assets/javascripts/rickshaw.min.js from your dashboard with the latest from <a href="https://raw.github.com/shutterstock/rickshaw/master/rickshaw.min.js">here</a>.</p>
+
+<h2>Supported HTML data fields</h2>
+
+<ul>
+<li><code>data-title</code>: Title to display.</li>
+<li><code>data-displayed-value</code>: If provided, then the value to display overtop of the graph.  If not
+provided, then the most recent value will be used if there is only one series.</li>
+<li><code>data-renderer</code>: Any valid Rickshaw renderer, including 'area', 'line', 'bar', 'scatterplot'.</li>
+<li><code>data-stroke</code>: If "true", then area graphs will be drawn with a stroke.</li>
+<li><code>data-unstack</code>: If "true", then area and bar graphs will be "unstacked".</li>
+<li><code>data-colors</code>: A ":" separated list of colors to use for each plot.  If there are fewer colors
+provided than there are series to graph, then pleasing colors will be automatically chosen.  (e.g.:
+<code>data-colors="#ccc:#ddd:#eee"</code>)</li>
+<li><code>data-stroke-colors</code>: A ":" separated list of colors to use for strokes.</li>
+<li><code>data-color-scheme</code>: One of "rainbow", "near-rainbow", "compliment", "default".  Controls how
+default colors are assigned.</li>
+<li><code>data-default-alpha</code>: Alpha for default colors.</li>
+<li><code>data-legend</code>: If "true", then a legend will be added to your graph.</li>
+<li><code>data-min</code> and <code>data-max</code>: Set the highest and lowest values of the y-axis.</li>
+<li><code>data-summary-method</code> determines how the value shown in the graph is computed.  If
+<code>data-displayed-value</code> is set, this is ignored.  Otherwise this should be one of:
+<ul>
+<li>"last" - Default - If there is only one series, show the most recent value from that series.</li>
+<li>"sum" - Sum of all values across all series.</li>
+<li>"sumLast" - Sum of last values across all series.</li>
+<li>"highest" - For stacked graphs, the highest single data point based on the sum of all series.
+For unstacked graphs, the highest single data point of any series.</li>
+</ul></li>
+</ul>
+
+<h2>Passing Data</h2>
+
+<p>Data can be provided in a number of formats.  Data can be passed as a series of points:</p>
+
+<pre><code>points = [{x:1, y: 4}, {x:2, y:27}, {x:3, y:6}]
+send_event('convergence', points: points)
+</code></pre>
+
+<p>Note that the <code>x</code> values are interpreted as unix timestamps.  Data can also be passed as full-on
+Rickshaw-style series:</p>
+
+<pre><code>series = [
+    {
+        name: "Convergence",
+        data: [{x:1, y: 4}, {x:2, y:27}, {x:3, y:6}]
+    },
+    {
+        name: "Divergence",
+        data: [{x:1, y: 5}, {x:2, y:2}, {x:3, y:9}]
+    }
+]
+send_event('convergence', series: series)
+</code></pre>
+
+<p>You can even provide colors and strokes here, which will override the values defined in the HTML.
+Or data can be passed as Graphite-style data:</p>
+
+<pre><code>graphite = [
+  {
+    target: "stats_counts.http.ok",
+    datapoints: [[10, 1378449600], [40, 1378452000], [53, 1378454400], [63, 1378456800], [27, 1378459200]]
+  },
+  {
+    target: "stats_counts.http.err",
+    datapoints: [[0, 1378449600], [4, 1378452000], [nil, 1378454400], [3, 1378456800], [0, 1378459200]]
+  }
+]
+send_event('http', series: graphite)
+</code></pre>
+
+<p>You can even send data as JSON strings, straight from Graphite:</p>
+
+<pre><code>require "rest-client"
+SCHEDULER.every '10s', :first_in =&gt; 0 do
+    target = "aliasSub(summarize(stats_counts.http.*%2C%2720min%27)%2C%27%5E.*http.(%5Cw*).*%27%2C%27%5C1%27)"
+    url = "http://graphteserver.local:8000/render?format=json&amp;target=#{target}&amp;from=today"
+    graphite_json_data = RestClient.get url
+    send_event 'http_counts', { series: graphite_json_data }
+end
+</code></pre>

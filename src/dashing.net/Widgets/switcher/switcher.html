@@ -1,0 +1,43 @@
+<h1>Switcher: Automatically switch widgets and dashboards</h1>
+
+<p>The Switcher widget is <em>not a widget</em> per se, but it adds some functionality on existing ones: When adding widgets to a dashboard, one gets easily out of screenspace because of not many widgets can be added in same screen/dashboard. Instead of putting them into separate dashboards, <strong>Switcher can switch widgets in same region periodically</strong>:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/781002/3454320/ec49d538-01cf-11e4-99a7-019e7b140db1.gif" alt="Example of using Switcher with three Twitter widgets" /></p>
+
+<p>While the requirement for multiple dashboard is decreased with multiple widgets, <strong>Switcher is capable of switching the dashboards</strong> too.</p>
+
+<h2>Usage: Switch widgets</h2>
+
+<ol>
+<li>Add multiple widgets within one grid list element</li>
+<li>(Optional) Set interval in milliseconds how often the widgets are changed by using <code>data-switcher-interval</code> attribute. Defaults to 5 seconds (5000).</li>
+</ol>
+
+<p>```html
+<li data-switcher-interval="3000" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <div data-id="kue-information" data-view="KueStatus"></div>
+    <div data-id="pingdom-uptime-dashboard" data-view="PingdomUptime"></div>
+    <div data-id="nagios-detailed-list" data-view="NagiosList"></div>
+</li>
+````</p>
+
+<h2>Usage: Switch dashboards</h2>
+
+<p>Switcher can switch dashboards too, by reloading the page to another dashboard.</p>
+
+<ol>
+<li>Set names (as they appear in URL) of the dashboards in layout.erb into container element. Separate dashboard names with space or comma.</li>
+<li>(Optional) Set interval in milliseconds how often the dashboard is changed by using <code>data-switcher-interval</code> attribute. Defaults to 60 seconds (60000).</li>
+</ol>
+
+<p>```erb</p>
+
+<div id="container" data-switcher-interval="10000" data-switcher-dashboards="dashboard1 dashboard2">
+  <%= yield %>
+</div>
+
+<p>```</p>
+
+<blockquote>
+  <p>Switcher widget is contributed by Juha Mustonen / SC5</p>
+</blockquote>

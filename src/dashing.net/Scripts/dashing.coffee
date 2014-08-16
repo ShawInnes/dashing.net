@@ -50,9 +50,11 @@ class Dashing.Widget extends Batman.View
       "Last updated at #{hours}:#{minutes}"
 
   @::on 'ready', ->
+    console.log("I am ready");
     Dashing.Widget.fire 'ready'
 
   receiveData: (data) =>
+    console.log("received some data");
     @mixin(data)
     @onData(data)
 
@@ -98,7 +100,9 @@ eventHub.client.sendMessage = (e) =>
     if Dashing.debugMode
       console.log("Received data for #{data.id}", data)
     lastEvents[data.id] = data
+    console.log("need to find one");
     if widgets[data.id]?.length > 0
+      console.log("found a widget for it");
       for widget in widgets[data.id]
         widget.receiveData(data)   
 

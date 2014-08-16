@@ -10,7 +10,7 @@
     "CamelCaseTypeNames": false
   },
   "CoffeeScript": {
-    "CompileOnBuild": true,
+    "CompileOnBuild": false,
     "CompileOnSave": true,
     "GenerateSourceMaps": true,
     "LintOnBuild": false,
@@ -97,7 +97,7 @@
     "StrictBoldItalic": false
   },
   "Scss": {
-    "CompileOnBuild": true,
+    "CompileOnBuild": false,
     "CompileOnSave": true,
     "EnableChainCompilation": true,
     "GenerateSourceMaps": true,
